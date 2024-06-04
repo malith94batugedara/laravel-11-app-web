@@ -57,17 +57,30 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Employee $employee)
+    public function edit(Employee $employee,$employee_id)
     {
-        //
+        $employeew = $employee::find($employee_id);
+        return view('employee.edit',compact('employeew'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateEmployeeRequest $request, Employee $employee)
+    public function update(UpdateEmployeeRequest $request, Employee $employee,$employee_id)
     {
-        //
+        $data = $request->validated();
+
+        $employeeww = $employee::find($employee_id);
+
+        $employeeww->emp_name = $data['emp_name'];
+
+        $employeeww->emp_address = $data['emp_address'];
+
+        $employeeww->employee_id = $data['emp_id'];
+
+        $employeeww->update();
+
+        return redirect(route('employee.index'))->with('status','Employee Updated Successfully!');
     }
 
     /**
