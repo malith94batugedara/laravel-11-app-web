@@ -12,3 +12,7 @@ Route::get('/add-employee',[EmployeeController::class,'create'])->name('employee
 Route::post('/add-employee',[EmployeeController::class,'store'])->name('employee.store');
 
 Route::get('/all-employees',[EmployeeController::class,'index'])->name('employee.index');
+
+Route::get('/edit-employee/{employee_id}',[EmployeeController::class,'edit'])->name('employee.edit');
+
+Route::post('/update-employee/{employee_id}',[EmployeeController::class,'update'])->name('employee.update');
