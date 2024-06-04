@@ -35,7 +35,7 @@
                     <td>{{$employee->employee_id}}</td>
                     <td>
                         <a href="{{ route('employee.edit',$employee->id) }}" class="btn btn-success">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="{{ route('employee.delete',$employee->id) }}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
 
